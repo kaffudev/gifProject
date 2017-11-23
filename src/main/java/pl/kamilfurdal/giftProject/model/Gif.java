@@ -1,4 +1,4 @@
-package pl.szymonchowaniec.giftProject.model;
+package pl.kamilfurdal.giftProject.model;
 
 public class Gif {
 
@@ -25,5 +25,13 @@ public class Gif {
 
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
+    }
+
+    @Override
+    public String toString() {
+        return "Gif{" +
+                "name='" + name + '\'' +
+                ", favorite=" + favorite +
+                '}';
     }
 }

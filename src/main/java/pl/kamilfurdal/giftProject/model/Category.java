@@ -1,4 +1,4 @@
-package pl.szymonchowaniec.giftProject.model;
+package pl.kamilfurdal.giftProject.model;
 
 public class Category {
 
@@ -29,11 +29,4 @@ public class Category {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

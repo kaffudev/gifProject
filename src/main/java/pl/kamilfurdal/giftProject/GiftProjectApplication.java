@@ -1,4 +1,4 @@
-package pl.szymonchowaniec.giftProject;
+package pl.kamilfurdal.giftProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package pl.szymonchowaniec.giftProject;
+package pl.kamilfurdal.giftProject;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
