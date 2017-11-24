@@ -5,7 +5,7 @@ body {
 }
 
 nav {
-    background-color: #896bb3;
+    background-color: #49b337;
     box-shadow: none;
 }
 
@@ -68,7 +68,7 @@ nav ul li.active, nav ul li:hover {
 
 .search-bar .input-field input ~ .material-icons, .search-bar .input-field input:focus ~ .material-icons {
     top: 0.5rem;
-    color: #896bb3;
+    color: #49b337;
 }
 
 ::-webkit-input-placeholder {

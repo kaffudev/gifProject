@@ -25,4 +25,12 @@ public class CategoryController {
         modelMap.addAttribute("categories", categoryRepository.getAll());
         return "categories";
     }
+
+    @GetMapping("/category/2")
+    public String showCategory2(ModelMap modelMap)
+    {
+        LOG.info("showCategories");
+        modelMap.addAttribute("categories", categoryRepository.getAll());
+        return "categories";
+    }
 }

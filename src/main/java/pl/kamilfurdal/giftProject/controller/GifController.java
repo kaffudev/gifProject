@@ -5,8 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.kamilfurdal.giftProject.model.Gif;
 import pl.kamilfurdal.giftProject.repository.GifRepository;
 
@@ -22,37 +21,40 @@ public class GifController {
     GifRepository gifRepository;
 
 
-
     @GetMapping("/")
     public String showGifs(@RequestParam(required = false)String q, ModelMap modelMap){
 
         LOG.info("User is showing gifs with q={}, q");
 
-        List<Gif> gifs = getAllFilteredGifs(q);
+        List<Gif> gifs = gifRepository.getAllFilteredGifs(q);
         LOG.info("Founds gifs={}", gifs);
 
         modelMap.addAttribute("gifs", gifs);
         return "home";
     }
 
-
-    private List<Gif> getAllFilteredGifs(String q){
-        List<Gif> gifs;
-
-        if (q != null){
-            List<Gif> filteredGifs = new ArrayList<>();
-            for (Gif gif : gifRepository.getAllGifs()) {
-                if (gif.getName().contains(q)) {
-                    filteredGifs.add(gif);
-                }
-
-            }
-            gifs = filteredGifs;
-        }else {
-            gifs = gifRepository.getAllGifs();
-        }
-
-        return gifs;
+/*
+    @GetMapping("/gif/{chose}")
+    public String showGifDetails( ModelMap  modelMap, @PathVariable String chose) {
+        modelMap.addAttribute("gif.name", chose);
+        modelMap.addAttribute("gif.favorite",gifRepository.getGifByName(chose).isFavorite());
+        return "redirect:/gif-details";
     }
+*/
+
+/*    @GetMapping("/gif-details")
+    public String showGifDetailed(ModelMap modelMap){
+
+        modelMap.addAttribute("gifs", gifRepository.getAllGifs());
+        return "gif-details";
+    }*/
+
+    @GetMapping("/gif-details")
+    @ResponseBody
+    public String showGifDetails() {
+
+        return "TO DO later";
+    }
+
 
 }

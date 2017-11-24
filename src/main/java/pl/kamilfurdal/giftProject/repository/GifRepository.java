@@ -25,4 +25,50 @@ public class GifRepository {
         return allGifs;
     }
 
+    public Gif getGifByName(String name, String q){
+        Gif selectedGif = null;
+
+        if (q == null) {
+
+            for (Gif gif : allGifs) {
+                if (gif.getName().equals(name)) {
+                    selectedGif = gif;
+
+                }
+            }
+            return selectedGif;
+        }else return null;
+    }
+
+    public List<Gif> getAllFilteredGifs(String q){
+        List<Gif> gifs;
+
+        if (q != null){
+            List<Gif> filteredGifs = new ArrayList<>();
+            for (Gif gif : allGifs) {
+                if (gif.getName().contains(q)) {
+                    filteredGifs.add(gif);
+                }
+
+            }
+            gifs = filteredGifs;
+        }else {
+            gifs = allGifs;
+        }
+
+        return gifs;
+    }
+
+    public List<Gif> getFavoriteGifs() {
+        List<Gif> gifs = new ArrayList<>();
+
+        for (Gif gif : allGifs) {
+            if (gif.isFavorite()== true){
+                gifs.add(gif);
+            }
+
+        }
+
+        return gifs;
+    }
 }
